@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3854816780451387114}
   - component: {fileID: -1480343495298199183}
   - component: {fileID: 1631112206525920087}
+  - component: {fileID: 5909843921518443926}
   m_Layer: 0
   m_Name: Burger_0
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1424, y: 0.1424, z: 0.1424}
+  m_LocalScale: {x: 0.3347254, y: 0.3347254, z: 0.3347254}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,4 +151,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cb9bf218516e14dae0cbcf29827200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Food
+  fallSpeed: 2
+--- !u!114 &5909843921518443926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283323384177887708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5924bedeba291641bb08d9aa392815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fallen
   fallSpeed: 2

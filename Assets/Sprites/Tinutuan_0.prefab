@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7964986214073916624}
   - component: {fileID: 7191910320855722016}
   - component: {fileID: 8690593563300090038}
+  - component: {fileID: 2277869908945510855}
   m_Layer: 0
   m_Name: Tinutuan_0
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.01, y: 1.21, z: 0}
-  m_LocalScale: {x: 0.2319811, y: 0.2319811, z: 0.2319811}
+  m_LocalScale: {x: 0.4656556, y: 0.4656556, z: 0.4656556}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,4 +151,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cb9bf218516e14dae0cbcf29827200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Food
+  fallSpeed: 2
+--- !u!114 &2277869908945510855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517726378437883549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5924bedeba291641bb08d9aa392815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fallen
   fallSpeed: 2
