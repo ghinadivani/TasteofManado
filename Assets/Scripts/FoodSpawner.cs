@@ -46,7 +46,6 @@ public class FoodSpawner : MonoBehaviour
         GameObject food = Instantiate(prefab, new Vector2(spawnX, spawnY), Quaternion.identity);
 
         // tambahkan skrip jatuh
-        Fallen f = food.AddComponent<Fallen>();
-        f.fallSpeed = fallSpeed;
+        food.GetComponent<Food>().fallSpeed = fallSpeed;
     }
 }

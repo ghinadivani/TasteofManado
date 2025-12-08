@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public float fallSpeed = 2f;   // atur kecepatan jatuh (lebih kecil = lebih lambat)
+    public float fallSpeed = 2f;
+    public int pointValue = 10; // default +10
 
     void Update()
     {
@@ -13,12 +14,13 @@ public class Food : MonoBehaviour
     {
         if (col.CompareTag("Basket"))
         {
-            Destroy(gameObject); // kalau ditangkap, hilang
+            ScoreManager.instance.AddScore(pointValue);
+            Destroy(gameObject);
         }
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject); // kalau jatuh ke bawah dan tidak ditangkap → hilang
+        Destroy(gameObject);
     }
 }
