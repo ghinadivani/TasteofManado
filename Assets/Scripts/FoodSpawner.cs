@@ -1,12 +1,16 @@
 using UnityEngine;
+using System.Collections;
 
 public class FoodSpawner : MonoBehaviour
 {
-    public GameObject[] foodPrefabs;   // 3 makanan kamu masukkan ke sini
-    public float minSpawnDelay = 0.5f; // jeda random
+    public GameObject[] foodPrefabs;   // prefab makanan
+    public float minSpawnDelay = 0.5f;
     public float maxSpawnDelay = 1.5f;
+    public float fallSpeed = 2f;
 
-    public float fallSpeed = 2f;       // kecepatan jatuh (semakin besar semakin cepat)
+    // BATAS X DALAM BENTUK GAMEOBJECT (BIAR BISA DI-DRAG DI SCENE)
+    public Transform leftLimit;
+    public Transform rightLimit;
 
     private Camera cam;
     private float minX;
@@ -16,17 +20,19 @@ public class FoodSpawner : MonoBehaviour
     {
         cam = Camera.main;
 
-        // Batas spawn left & right
-        Vector2 left = cam.ViewportToWorldPoint(new Vector2(0, 1));
-        Vector2 right = cam.ViewportToWorldPoint(new Vector2(1, 1));
+        if (leftLimit == null || rightLimit == null)
+        {
+            Debug.LogError("LeftLimit / RightLimit belum di-assign di Inspector!");
+            return;
+        }
 
-        minX = left.x + 0.5f;   // padding biar tidak muncul setengah
-        maxX = right.x - 0.5f;
+        minX = leftLimit.position.x;
+        maxX = rightLimit.position.x;
 
         StartCoroutine(SpawnRoutine());
     }
 
-    System.Collections.IEnumerator SpawnRoutine()
+    IEnumerator SpawnRoutine()
     {
         while (true)
         {
@@ -37,15 +43,20 @@ public class FoodSpawner : MonoBehaviour
 
     void SpawnFood()
     {
-        // pilih makanan random
-        GameObject prefab = foodPrefabs[Random.Range(0, foodPrefabs.Length)];
+        if (foodPrefabs.Length == 0) return;
 
         float spawnX = Random.Range(minX, maxX);
-        float spawnY = cam.ViewportToWorldPoint(new Vector2(0.5f, 1.1f)).y; // sedikit di atas layar
 
+        // sedikit di atas layar
+        float spawnY = cam.ViewportToWorldPoint(new Vector3(0.5f, 1.1f, 0f)).y;
+
+        GameObject prefab = foodPrefabs[Random.Range(0, foodPrefabs.Length)];
         GameObject food = Instantiate(prefab, new Vector2(spawnX, spawnY), Quaternion.identity);
 
-        // tambahkan skrip jatuh
-        food.GetComponent<Food>().fallSpeed = fallSpeed;
+        Food foodScript = food.GetComponent<Food>();
+        if (foodScript != null)
+        {
+            foodScript.fallSpeed = fallSpeed;
+        }
     }
 }

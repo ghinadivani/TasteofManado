@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Food
   fallSpeed: 2
   pointValue: -10
+  isHealthy: 0
 --- !u!114 &5909843921518443926
 MonoBehaviour:
   m_ObjectHideFlags: 0
